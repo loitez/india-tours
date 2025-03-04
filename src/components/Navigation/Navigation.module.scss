@@ -1,0 +1,16 @@
+@use '../../_variables' as vars;
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  //width: 100%;
+  //max-width: 400px;
+  & > *:not(:last-child) {
+    margin-right: 15px;
+  }
+}
+:global .active {
+  color: vars.$primary-color;
+  box-shadow: 0 -17px 0 -15px vars.$primary-color inset;
+}
