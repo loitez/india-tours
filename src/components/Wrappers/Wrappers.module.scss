@@ -1,0 +1,11 @@
+.wrappers {
+  &__image {
+    max-width: 250px;
+    > img {
+      display: block;
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

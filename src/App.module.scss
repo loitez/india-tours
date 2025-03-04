@@ -1,0 +1,21 @@
+@use './_variables' as vars;
+
+.app {
+  max-width: 1300px;
+  margin: 0 auto;
+  font-size: 18px;
+}
+a {
+  color: inherit;
+  &:hover {
+    color: vars.$primary-color
+  }
+}
+
+button {
+  outline: none;
+  border: none;
+  &:active {
+    outline: none;
+  }
+}

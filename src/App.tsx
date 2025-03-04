@@ -1,10 +1,18 @@
 import styles from "./App.module.scss";
-import { Header } from "./components";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { About, Courses, Main, Blog } from "./pages";
 
 export const App = () => {
   return (
     <div className={styles.app}>
-      <Header />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/courses" element={<Courses />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 };

@@ -1,19 +1,6 @@
-import { getRates } from "../../hooks";
-import { useMemo, useState } from "react";
+import {CurrencyProps} from "../../types";
 
-type CurrencyRates = {
-  [currency: string]: number;
-};
+export const Currency = ({rate}:  CurrencyProps) => {
 
-interface Currencies {
-  baseCode: string;
-  conversionRates: CurrencyRates;
-}
-
-export const Currency = () => {
-  // const [currencies, setCurrencies] = useState<Currencies>({});
-
-  const rates = getRates();
-
-  return <></>;
+  return <div>{rate}</div>;
 };

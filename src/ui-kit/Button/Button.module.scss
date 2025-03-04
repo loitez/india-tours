@@ -1,0 +1,29 @@
+@use '../../_variables' as vars;
+
+.button {
+  border-radius: 40px;
+}
+
+:global .primary-btn {
+  background-color: vars.$primary-color;
+  &:hover {
+    background-color: vars.$primary-color-hover
+  }
+}
+
+:global .secondary-btn {
+  background-color: vars.$secondary-color;
+  &:hover {
+    background-color: vars.$secondary-color-hover
+  }
+}
+
+:global .default-btn {
+  background-color: #000;
+  border: 1px solid #000;
+  &:hover {
+    background-color: #fff;
+    border: 1px solid #000;
+    color: #000;
+  }
+}
