@@ -1,10 +1,9 @@
 import styles from "./Header.module.scss";
-import { Currency } from "../../ui-kit";
 import { getRates, getRecalculatedRates } from "../../hooks";
 import { useEffect, useMemo, useState } from "react";
 import { CurrencyRates } from "../../types";
 import logo from "~assets/HindiLogo.svg";
-import { ImageWrapper } from "../Wrappers";
+import {Wrapper} from "../Wrappers";
 import { Navigation } from "../Navigation";
 
 const MOCK_RATES = {
@@ -28,9 +27,9 @@ export const Header = () => {
 
   return (
     <div className={styles.header}>
-      <ImageWrapper>
+      <Wrapper wrapperType="image" className={styles.header__logo}>
         <img src={logo} alt="" />
-      </ImageWrapper>
+      </Wrapper>
       <Navigation></Navigation>
       {/*<div className={styles.header__currencies}>
         {Object.entries(recalculatedRates).map(([key, value]) => (

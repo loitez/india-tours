@@ -1,1 +1,1 @@
-export * from './ImageWrapper.tsx'
+export * from './Wrapper.tsx'

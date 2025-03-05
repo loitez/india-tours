@@ -6,6 +6,9 @@
   align-items: center;
   //width: 100%;
   //max-width: 400px;
+  & > a {
+    font-weight: 600;
+  }
   & > *:not(:last-child) {
     margin-right: 15px;
   }

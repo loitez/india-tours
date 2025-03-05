@@ -1,5 +1,11 @@
-import { Header } from "../../components";
+import {Header, Banner, BenefitsSection} from "../../components";
 
 export const Main = () => {
-  return <Header />;
+  return (
+    <>
+      <Header />
+      <Banner/>
+      <BenefitsSection/>
+    </>
+  );
 };
