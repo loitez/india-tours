@@ -1,0 +1,18 @@
+@use '../../_variables' as vars;
+
+input {
+  color: #000;
+  outline: none;
+  border: none;
+  background-color: vars.$input-color;
+  border-radius: 20px;
+  padding: 15px 20px;
+  width: 100%;
+  &::placeholder {
+    font-family: inherit;
+    font-size: 16px;
+  }
+  &:hover {
+    background-color: vars.$input-color-hover;
+  }
+}

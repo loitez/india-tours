@@ -3,7 +3,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  & > * {
-    margin-right: 30px;
+  margin-bottom: 20px;
+  &__logo {
+    max-width: 325px;
   }
 }

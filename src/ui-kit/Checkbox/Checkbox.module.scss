@@ -1,0 +1,51 @@
+@use '../../_variables' as vars;
+
+.checkbox {
+  display: inline-block;
+  & > input[type="checkbox"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+    &:checked {
+      & + label:before {
+        content: '\f00c';
+        font-family: 'Font Awesome 5 Free', sans-serif; /* Укажите правильное семейство */
+        font-weight: 900; /* Обязательно для некоторых иконок */
+        color: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  & > label {
+    position: relative;
+    margin-top: 5px;
+    padding-left: 35px;
+    cursor: pointer;
+    &:before {
+      content: '';
+      top: 50%;
+      left: 5px;
+      transform: translateY(-50%);
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: vars.$input-color;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    &:hover {
+      &:before {
+        background-color: vars.$input-color-hover;
+      }
+    }
+  }
+}
