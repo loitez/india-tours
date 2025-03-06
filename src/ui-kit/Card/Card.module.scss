@@ -5,12 +5,15 @@
   justify-content: center;
   align-items: center;
   min-height: 100px;
+  background-color: #fff;
+  border: 1px solid vars.$primary-color;
+  box-shadow: 0 0 8px 1px vars.$primary-light-color;
   //background-color: vars.$card-color;
-  box-shadow:
+  /*box-shadow:
           -10px -10px 15px rgba(255, 255, 255, 0.5),
           10px 10px 15px rgba(70, 70, 70, 0.08),
           inset -10px -10px 15px rgba(255, 255, 255, 0.5),
-          inset 10px 10px 15px rgba(70, 70, 70, 0.05);
+          inset 10px 10px 15px rgba(70, 70, 70, 0.05);*/
   border-radius: 20px;
   padding: 10px 30px;
   & > div {
@@ -20,12 +23,14 @@
 
 :global .orange-card {
   background-color: vars.$primary-color;
+  border: none;
   box-shadow: none;
   color: #fff;
 }
 
 :global .green-card {
   background-color: vars.$secondary-color;
+  border: none;
   box-shadow: none;
   color: #fff;
 }

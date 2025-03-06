@@ -1,0 +1,27 @@
+{
+  "name": "Hindi Lain",
+  "version": "1.0.0",
+  "description": "Hidni Tutor",
+  "keywords": [
+    "node",
+    "express",
+    "javascript"
+  ],
+  "license": "ISC",
+  "author": "Anastasia Mikhailova <loitez@mail.ru>",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "serve": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "axios": "^1.8.1",
+    "cheerio": "^1.0.0",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
