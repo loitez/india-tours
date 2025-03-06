@@ -1,6 +1,6 @@
 @use '../../_variables' as vars;
 
-.benefit__card {
+.card {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,6 +15,17 @@
   padding: 10px 30px;
   & > div {
     align-items: center;
-    margin: 0;
   }
+}
+
+:global .orange-card {
+  background-color: vars.$primary-color;
+  box-shadow: none;
+  color: #fff;
+}
+
+:global .green-card {
+  background-color: vars.$secondary-color;
+  box-shadow: none;
+  color: #fff;
 }

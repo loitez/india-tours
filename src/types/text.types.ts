@@ -16,4 +16,5 @@ export interface TextTypesProps extends DefaultProps {
   layout?: "text-block" | "text-inline";
   style?: "text-italic";
   align?: "text-center";
+  color?: "text-primary" | "text-secondary";
 }

@@ -1,5 +1,5 @@
 import styles from './BenefitsSection.module.scss'
-import {Benefit, BenefitCard, Text} from "../../ui-kit";
+import {Benefit, Card, Text} from "../../ui-kit";
 import {Wrapper} from "../Wrappers";
 
 export const BenefitsSection = () => {
@@ -7,18 +7,18 @@ export const BenefitsSection = () => {
         <Wrapper wrapperType="block">
             <Text size="text-h1" weight="font-bold" align="text-center" layout="text-block">Преимущества индивидуальных занятий</Text>
             <div className={styles.benefits__section}>
-                <BenefitCard>
+                <Card>
                     <Benefit icon="bulb">Интерактивная платформа Взнания</Benefit>
-                </BenefitCard>
-                <BenefitCard>
+                </Card>
+                <Card>
                     <Benefit icon="folder">Личная папка в облаке</Benefit>
-                </BenefitCard>
-                <BenefitCard>
+                </Card>
+                <Card>
                     <Benefit icon="pen">Домашнее задание на платформе</Benefit>
-                </BenefitCard>
-                <BenefitCard>
+                </Card>
+                <Card>
                     <Benefit icon="book">Индивидуальный подбор материалов</Benefit>
-                </BenefitCard>
+                </Card>
             </div>
         </Wrapper>
     )
