@@ -27,3 +27,14 @@
     color: #000;
   }
 }
+
+:global .outlined-btn {
+  background-color: #fff;
+  border: 1px solid vars.$primary-color;
+  color: vars.$primary-color;
+  &:hover {
+    background-color: vars.$primary-color;
+    border: 1px solid vars.$primary-color;
+    color: #fff;
+  }
+}

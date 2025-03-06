@@ -1,0 +1,15 @@
+.main {
+  &__action_block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px 20px;
+    & > *:not(:last-child) {
+      margin-bottom: 10px;
+    }
+    & button {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+  }
+}
