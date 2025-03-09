@@ -1,4 +1,9 @@
 .applicationForm {
   max-width: 600px;
   margin: 0 auto;
+  &__form {
+    & > * {
+      margin-bottom: 10px;
+    }
+  }
 }
