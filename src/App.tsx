@@ -1,7 +1,7 @@
 import styles from "./App.module.scss";
 import './assets/fonts.scss';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import {About, Courses, Main, Blog, Course, ApplicationForm} from "./pages";
+import {About, Courses, Main, Blog, Course, ApplicationForm, Authorization, Registration} from "./pages";
 import '@fortawesome/fontawesome-free/css/all.css';
 
 export const App = () => {
@@ -15,6 +15,8 @@ export const App = () => {
           <Route path="/blog" element={<Blog />} />
           <Route path="/about" element={<About />} />
           <Route path="/application-form" element={<ApplicationForm />} />
+          <Route path="/login" element={<Authorization />} />
+          <Route path="/register" element={<Registration />} />
         </Routes>
       </BrowserRouter>
     </div>
