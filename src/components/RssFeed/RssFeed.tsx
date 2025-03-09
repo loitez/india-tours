@@ -1,16 +1,10 @@
 import styles from './RssFeed.module.scss'
 import { useEffect, useState } from "react";
-import {Benefit, BenefitCard, Card} from "../../ui-kit";
+import {Card} from "../../ui-kit";
+import {Wrapper} from "../Wrappers";
+import {type Post} from "../../types";
+import {normalizePost} from "../../utils";
 
-type Post = {
-    title: string,
-    content: string,
-    link: string
-}
-
-export interface IRssFeed {
-    posts: Post[]
-}
 
 export const RssFeed = () => {
     const [items, setItems] = useState([]);
@@ -33,15 +27,16 @@ export const RssFeed = () => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
-                console.log(response)
+
                 const data = await response.json();
 
                 // const feed = await parse(feedUrl);
-                console.log(data)
+
 
                 // Получаем список постов из ленты
-                const feed = data.filter((post: Post) => post.content !== 'Без текста')
+                const feed = data.filter((post: Post) => post.content !== 'Без текста').map((post: Post) => normalizePost(post));
                 setItems(feed);
+                console.log(feed)
                 setLoading(false);
             } catch (err) {
                 console.error("Ошибка при загрузке RSS:", err);
@@ -66,12 +61,23 @@ export const RssFeed = () => {
             <h2>Посты из Telegram-канала</h2>
             <div className={styles.RssFeed__container}>
                 {items.map((item: Post, index) => (
-                    <Card key={index} className={styles.RssFeed__item}>
-                        <h3 className={styles.RssFeed__item_title}>Пост</h3>
-                        <p className={styles.RssFeed__item_content} dangerouslySetInnerHTML={{ __html: item.content }} />
-                        <a href="t.me/hindilain" target="_blank" rel="noopener noreferrer">
-                            Читать в оригинале
-                        </a>
+                    <Card key={index} className={styles.RssFeed__item} version="green-card">
+
+                        {
+                            item.image &&
+                            <Wrapper wrapperType="image" className={styles.RssFeed__item_image}>
+                                <img src={item.image} alt=""/>
+                            </Wrapper>
+                        }
+                        <div className={styles.RssFeed__item_text}>
+                            <h3 className={styles.RssFeed__item_title}>{item.title}</h3>
+                            <p className={styles.RssFeed__item_content}
+                               dangerouslySetInnerHTML={{__html: item.preview || item.content}}/>
+                            <a href="t.me/hindilain" target="_blank" rel="noopener noreferrer">
+                                Читать в оригинале
+                            </a>
+                        </div>
+
                     </Card>
                 ))}
             </div>

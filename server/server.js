@@ -16,6 +16,7 @@ function parseRssItems(html) {
 
 // Эндпоинт для получения RSS-ленты
 app.get("/api/rss", async (req, res) => {
+
     try {
         const feedUrl = "https://t.me/s/hindilain"; // URL вашего канала
         const response = await axios.get(feedUrl, {
@@ -39,20 +40,35 @@ app.get("/api/rss", async (req, res) => {
             const content = $post
                 .find(".tgme_widget_message_text")
                 .html()
-                ?.replace(/<br\s*\/?>/g, "\n") // Заменяем <br> на перенос строки
+               ?.replace(/<br\s*\/?>/g, "\n") // Заменяем <br> на перенос строки*/
+                ?.replace(/<tg-emoji\b[^>]*>.*?<\/tg-emoji>/gis, "")
+                ?.replace(/<b>/g, '')
+                ?.replace(/<\/b>/g, '')
+                ?.replace(/<a\b[^>]*>/gis, "")
+                ?.replace(/<\/a>/g, '')
                 ?.trim() || "Без текста";
 
             // Получаем ссылку на пост
             const link = $post.find(".tgme_widget_message_date a").attr("href");
 
+            const imageElement = $post.find(".tgme_widget_message_photo_wrap");
+            let imageUrl = null;
+            if (imageElement.length > 0) {
+                const style = imageElement.attr("style") || "";
+                const match = style.match(/url\(['"]?(.*?)['"]?\)/);
+                if (match && match[1]) {
+                    imageUrl = match[1]; // Извлекаем URL изображения
+                }
+            }
+
             // Добавляем пост в массив
             posts.push({
                 title: title || "Без заголовка",
                 content,
+                image: imageUrl,
                 link: link || "#",
             });
         });
-        console.log(posts)
 
         res.send(posts);
     } catch (error) {
