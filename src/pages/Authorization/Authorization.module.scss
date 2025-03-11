@@ -1,0 +1,14 @@
+.authorization {
+  max-width: 600px;
+  margin: 0 auto;
+  &__form {
+    margin-top: 10px;
+    & > * {
+      margin-bottom: 15px;
+    }
+    & > button {
+      width: 100%;
+      padding: 15px 20px;
+    }
+  }
+}

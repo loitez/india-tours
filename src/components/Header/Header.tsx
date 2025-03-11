@@ -5,6 +5,8 @@ import { CurrencyRates } from "../../types";
 import logo from "~assets/HindiLogo.svg";
 import {Wrapper} from "../Wrappers";
 import { Navigation } from "../Navigation";
+import {Link} from "react-router-dom";
+import {Button} from "../../ui-kit";
 
 const MOCK_RATES = {
   INR: 0.978502,
@@ -27,10 +29,20 @@ export const Header = () => {
 
   return (
     <div className={styles.header}>
-      <Wrapper wrapperType="image" className={styles.header__logo}>
-        <img src={logo} alt="" />
-      </Wrapper>
+      <Link to="/">
+        <Wrapper wrapperType="image" className={styles.header__logo}>
+          <img src={logo} alt="" />
+        </Wrapper>
+      </Link>
       <Navigation></Navigation>
+      <div className={styles.header__btns}>
+        <Link to="/application-form">
+          <Button version="secondary-btn">Записаться на занятие</Button>
+        </Link>
+        <Link to="/login">
+          Войти
+        </Link>
+      </div>
       {/*<div className={styles.header__currencies}>
         {Object.entries(recalculatedRates).map(([key, value]) => (
           <Currency key={key} rate={value} />

@@ -1,10 +1,16 @@
 .header {
   padding: 20px 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   margin-bottom: 20px;
   &__logo {
     max-width: 325px;
+  }
+  &__btns {
+    margin-left: auto;
+    & > *:not(:last-child) {
+      margin-right: 10px;
+    }
   }
 }
