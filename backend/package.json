@@ -10,10 +10,10 @@
   "license": "ISC",
   "author": "Anastasia Mikhailova <loitez@mail.ru>",
   "type": "module",
-  "main": "server.js",
+  "main": "",
   "scripts": {
-    "start": "node server.js",
-    "serve": "nodemon server.js"
+    "start": "node src/server.js",
+    "serve": "nodemon src/server.js"
   },
   "dependencies": {
     "express": "^4.21.2",
