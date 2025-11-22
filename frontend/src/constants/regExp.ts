@@ -1,0 +1,1 @@
+export const CyrillicSymbolsRegExp = /^[а-яё -]+$/i

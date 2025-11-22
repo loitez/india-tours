@@ -1,7 +1,13 @@
 import styles from "./Banner.module.scss";
 import { Benefit, Button, Checkbox, Input, Text } from "../../ui-kit";
+import {FormEvent} from "react";
+import {ErrorMessage, Field, Form, Formik} from "formik";
+import {ConsultForm} from "../Forms";
 
 export const Banner = () => {
+
+
+
   return (
     <div className={styles.banner}>
       <div className={styles.banner__text}>
@@ -23,22 +29,8 @@ export const Banner = () => {
           время и&nbsp;в&nbsp;любом месте
         </Benefit>
       </div>
-      <div className={styles.banner__form}>
-        <Text className={styles.banner__form_title} size="text-h3" layout="text-block" align="text-center">
-          Запишитесь на консультацию
-        </Text>
-        <form className={styles.banner__form_inputs} action="">
-          <Input name="name" placeholder="Имя" />
-          <Input name="phone" placeholder="+7(___)___-__-__" />
-          <Input name="email" placeholder="your@email.ru" />
-          <Button className={styles.banner__form_btn} version="secondary-btn" type="submit">
-            Хочу на консультацию
-          </Button>
-          <Checkbox id="lead-form-agreement">
-            Я согласен на обработку персональных данных
-          </Checkbox>
-        </form>
-      </div>
+      <ConsultForm/>
+
     </div>
   );
 };

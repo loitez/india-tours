@@ -1,0 +1,15 @@
+@use '../../_variables' as vars;
+
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  & > * {
+    margin-bottom: 25px;
+  }
+  &__image {
+      max-width: 400px;
+      text-align:center;
+  }
+}

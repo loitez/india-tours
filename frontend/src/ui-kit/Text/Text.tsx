@@ -1,4 +1,4 @@
-import { TextTypesProps } from "../../types/text.types.ts";
+import { TextTypesProps } from "../../types";
 import styles from "./Text.module.scss";
 
 export const Text = ({

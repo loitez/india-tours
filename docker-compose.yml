@@ -1,4 +1,18 @@
 services:
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+
+
   frontend:
     build:
       context: ./frontend
@@ -6,23 +20,55 @@ services:
     ports:
       - "5173:5173"
     volumes:
-      - ./frontend:/app
-      - /app/node_modules
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+      - ./frontend/vite.config.ts:/app/vite.config.ts
+      - ./frontend/public:/app/public
+      - ./frontend/tsconfig.app.json:/app/tsconfig.app.json
+      - ./frontend/tsconfig.node.json:/app/tsconfig.node.json
+      - ./frontend/eslint.config.js:/app/eslint.config.js
     environment:
-        - NODE_ENV=development
+        NODE_ENV: development
+        CHOKIDAR_USEPOLLING: "true"
     stdin_open: true
     tty: true
     depends_on:
       - backend
+    restart: unless-stopped
 
   backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
+    env_file:
+      - .env
     ports:
       - "5000:5000"
     volumes:
       - ./backend:/app
       - /app/node_modules
     environment:
-      - NODE_ENV=development
+      NODE_ENV: development
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      CHOKIDAR_USEPOLLING: "true"
+    depends_on:
+      - db
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container
+    environment:
+      PGADMIN_DEFAULT_EMAIL: loitez@mail.ru
+      PGADMIN_DEFAULT_PASSWORD: qwpo0102
+    ports:
+      - "5050:80"
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
+

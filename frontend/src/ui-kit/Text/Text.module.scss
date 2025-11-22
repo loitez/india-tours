@@ -39,3 +39,7 @@
 :global .text-secondary {
   color: vars.$secondary-color;
 }
+
+:global .text-error {
+  color: vars.$danger-color;
+}

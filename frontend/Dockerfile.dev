@@ -1,10 +1,17 @@
-FROM node:18-alpine
+FROM node:18
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package.json package-lock.json ./
 
 RUN npm install
+
+COPY vite.config.ts ./
+COPY tsconfig.json ./
+COPY tsconfig.app.json ./
+COPY tsconfig.node.json ./
+COPY eslint.config.js ./
+COPY index.html ./
 
 EXPOSE 5173
 

@@ -9,6 +9,9 @@ $input-color: #ededed;
 $input-color-hover: #e4e4e4;
 $card-color: #f4f4f4;
 $primary-light-color: rgba(207, 207, 207, 0.1);
+$gray-dark-color: rgb(117, 117, 117);
+$gray-light-color: rgb(227, 227, 227);
+$gray-very-light-color: rgba(239, 239, 239, 0.3);
 
 // Цвета для тегов
 $online-color: #297ac8;
@@ -23,3 +26,6 @@ $font-family-primary: 'Roboto', sans-serif;
 $spacing-sm: 8px;
 $spacing-md: 16px;
 $spacing-lg: 24px;
+
+// Скругление
+$border-radius-m: 20px;

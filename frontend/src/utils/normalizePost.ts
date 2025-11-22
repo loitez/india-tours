@@ -13,7 +13,7 @@ export const normalizePost = (post: Post): Post => {
     }
 }
 
-const truncateTextWithEllipsis = (text: string, maxLength: number) => {
+export const truncateTextWithEllipsis = (text: string, maxLength: number) => {
     if (text.length > maxLength) {
         return text.slice(0, maxLength) + "...";
     }

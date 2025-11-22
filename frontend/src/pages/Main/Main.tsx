@@ -1,5 +1,5 @@
 import styles from './Main.module.scss'
-import {Header, Banner, BenefitsSection, Wrapper} from "../../components";
+import {Header, Banner, BenefitsSection, Wrapper, Feedback} from "../../components";
 import {Button, Card, Text} from "../../ui-kit";
 import {Link} from "react-router-dom";
 
@@ -20,7 +20,7 @@ export const Main = () => {
         </Wrapper>
         <Wrapper wrapperType="block">
             <Text size="text-h1" weight="font-bold" layout="text-block" align="text-center">Отзывы</Text>
-
+            <Feedback/>
         </Wrapper>
     </>
   );

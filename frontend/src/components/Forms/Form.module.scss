@@ -1,0 +1,32 @@
+@use '../../_variables' as vars;
+
+.form {
+  background-color: #fff;
+  border-radius: 20px;
+  color: #000;
+  padding: 20px;
+  &_title {
+    margin-bottom: 25px;
+  }
+  &_inputs {
+
+  }
+  &_input {
+
+  }
+  &_btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 15px 20px;
+  }
+  &_error {
+    min-height: 25px;
+    padding-top: 2px;
+    & > div {
+      color: vars.$danger-color;
+      padding-left: 10px;
+      font-size: 13px;
+    }
+  }
+}

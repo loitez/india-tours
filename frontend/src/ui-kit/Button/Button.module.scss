@@ -38,3 +38,23 @@
     color: #fff;
   }
 }
+
+:global .invisible {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  color: inherit;
+  &:hover {
+    & > * {
+      color: vars.$primary-color-hover;
+    }
+  }
+  &:active, &:focus {
+    border: none;
+    outline: none;
+    & > * {
+      border: none;
+      outline: none;
+    }
+  }
+}
