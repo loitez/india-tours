@@ -1,2 +1,2 @@
 export * from "./getRates";
-export * from './getRecalculatedRates'
+export * from "./getRecalculatedRates";

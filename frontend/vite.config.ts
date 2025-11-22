@@ -8,9 +8,9 @@ export default defineConfig({
     port: 5173,
     host: true,
     proxy: {
-      '/api': {
-        target: 'http://backend:5000', // Имя сервиса из docker-compose.yml
-        changeOrigin: true
+      "/api": {
+        target: "http://backend:5000", // Имя сервиса из docker-compose.yml
+        changeOrigin: true,
       },
     },
   },

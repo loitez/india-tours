@@ -1,1 +1,1 @@
-export * from './RssFeed'
+export * from "./RssFeed";

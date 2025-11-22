@@ -4,9 +4,9 @@ export * from "./Text";
 export * from "./Benefit";
 export * from "./Input";
 export * from "./Checkbox";
-export * from './Card'
-export * from './Tag'
-export * from './Select'
-export * from './Swiper'
-export * from './Loader'
-export * from './Filter'
+export * from "./Card";
+export * from "./Tag";
+export * from "./Select";
+export * from "./Swiper";
+export * from "./Loader";
+export * from "./Filter";

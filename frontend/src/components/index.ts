@@ -2,10 +2,10 @@ export * from "./Header";
 export * from "./Wrappers";
 export * from "./Navigation";
 export * from "./Banner";
-export * from './BenefitsSection';
-export * from './RssFeed';
-export * from './Feedback'
-export * from './Error'
-export * from './Sidebar'
-export * from './SortPanel'
-export * from './Forms'
+export * from "./BenefitsSection";
+export * from "./RssFeed";
+export * from "./Feedback";
+export * from "./Error";
+export * from "./Sidebar";
+export * from "./SortPanel";
+export * from "./Forms";

@@ -1,16 +1,13 @@
-import {getCourses} from "../api";
-import {useEffect, useState} from "react";
-import {Course} from "../types";
-
+import { getCourses } from "../api";
+import { useEffect, useState } from "react";
+import { Course } from "../types";
 
 export const useCourses = (): Course[] => {
-    const [courses, setCourses] = useState([]);
+  const [courses, setCourses] = useState([]);
 
-    useEffect(() => {
+  useEffect(() => {
+    fetchCourses();
+  }, []);
 
-
-        fetchCourses()
-    }, []);
-
-    return courses
-}
+  return courses;
+};

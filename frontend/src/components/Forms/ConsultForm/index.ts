@@ -1,1 +1,1 @@
-export * from './ConsultForm'
+export * from "./ConsultForm";

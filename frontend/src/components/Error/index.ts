@@ -1,1 +1,1 @@
-export * from './Error.tsx'
+export * from "./Error.tsx";

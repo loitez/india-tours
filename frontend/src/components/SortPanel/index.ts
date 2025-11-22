@@ -1,1 +1,1 @@
-export * from './SortPanel'
+export * from "./SortPanel";

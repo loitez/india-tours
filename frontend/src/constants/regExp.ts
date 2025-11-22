@@ -1,1 +1,1 @@
-export const CyrillicSymbolsRegExp = /^[а-яё -]+$/i
+export const CyrillicSymbolsRegExp = /^[а-яё -]+$/i;
