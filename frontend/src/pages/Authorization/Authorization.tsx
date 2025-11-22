@@ -1,23 +1,23 @@
-import styles from './Authorization.module.scss';
-import { Header } from '../../components';
-import { Button, Input, Text } from '../../ui-kit';
-import { Link } from 'react-router-dom';
-import { login } from '../../slices';
-import { useDispatch } from 'react-redux';
-import { useState } from 'react';
+import styles from "./Authorization.module.scss";
+import { Header } from "../../components";
+import { Button, Input, Text } from "../../ui-kit";
+import { Link } from "react-router-dom";
+import { login } from "../../slices";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
 
 export const Authorization = () => {
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
 
 	const dispatch = useDispatch();
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 		try {
-			const response = await fetch('/api/auth/login', {
-				method: 'POST',
+			const response = await fetch("/api/auth/login", {
+				method: "POST",
 				headers: {
-					'Content-Type': 'application/json',
+					"Content-Type": "application/json",
 				},
 				body: JSON.stringify({ password, email }),
 			});
@@ -32,7 +32,7 @@ export const Authorization = () => {
 			}
 		} catch (error) {
 			console.error(error);
-			alert('Registration failed');
+			alert("Registration failed");
 		}
 	};
 

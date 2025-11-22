@@ -1,9 +1,9 @@
-import styles from './Swiper.module.scss';
-import { useEffect, useRef, useState } from 'react';
-import { Card } from '../Card';
-import { Wrapper } from '../../components';
-import { IconCircle } from '../IconCircle';
-import { Text } from '../Text';
+import styles from "./Swiper.module.scss";
+import { useEffect, useRef, useState } from "react";
+import { Card } from "../Card";
+import { Wrapper } from "../../components";
+import { IconCircle } from "../IconCircle";
+import { Text } from "../Text";
 
 export const Swiper = ({ slides, loop = true, autoPlay = true, autoPlayTime = 2000 }) => {
 	const [currentSlide, setCurrentSlide] = useState(1);
@@ -42,8 +42,8 @@ export const Swiper = ({ slides, loop = true, autoPlay = true, autoPlayTime = 20
 					transform: `translateX(-${currentSlide * 100}%)`, // Перемещаем слайды
 					transition:
 						currentSlide === 0 || currentSlide === slides.length + 1
-							? 'none'
-							: 'transform 0.5s ease',
+							? "none"
+							: "transform 0.5s ease",
 				}}
 			>
 				{extendedSlides.map((slide, index) => (

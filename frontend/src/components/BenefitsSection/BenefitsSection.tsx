@@ -1,6 +1,6 @@
-import styles from './BenefitsSection.module.scss';
-import { Benefit, Card, Text } from '../../ui-kit';
-import { Wrapper } from '../Wrappers';
+import styles from "./BenefitsSection.module.scss";
+import { Benefit, Card, Text } from "../../ui-kit";
+import { Wrapper } from "../Wrappers";
 
 export const BenefitsSection = () => {
 	return (

@@ -1,16 +1,16 @@
-import { Header, Wrapper } from '../../components';
-import { useParams } from 'react-router-dom';
-import { getCourse } from '../../api';
-import { useEffect, useState } from 'react';
-import { type Course as CourseType } from '../../types';
-import { Error } from '../../components';
-import { Text } from '../../ui-kit';
-import styles from '../Courses/Courses.module.scss';
-import { normalizeText } from '../../utils/normalizeText.ts';
+import { Header, Wrapper } from "../../components";
+import { useParams } from "react-router-dom";
+import { getCourse } from "../../api";
+import { useEffect, useState } from "react";
+import { type Course as CourseType } from "../../types";
+import { Error } from "../../components";
+import { Text } from "../../ui-kit";
+import styles from "../Courses/Courses.module.scss";
+import { normalizeText } from "../../utils/normalizeText.ts";
 
 export const Course = () => {
 	const params = useParams();
-	const courseSlug = params.id ?? '';
+	const courseSlug = params.id ?? "";
 
 	const [course, setCourse] = useState<CourseType>({} as CourseType);
 

@@ -1,16 +1,16 @@
-@use '../../_variables' as vars;
+@use "../../_variables" as vars;
 
 .benefit {
-  display: flex;
-  margin-bottom: 10px;
-  margin-top: 20px;
-  align-items: center;
-  & > svg {
-    width: 25px;
-    height: 25px;
-    margin-top: 4px;
-  }
-  & > *:not(:last-child) {
-    margin-right: 15px;
-  }
+	display: flex;
+	margin-bottom: 10px;
+	margin-top: 20px;
+	align-items: center;
+	& > svg {
+		width: 25px;
+		height: 25px;
+		margin-top: 4px;
+	}
+	& > *:not(:last-child) {
+		margin-right: 15px;
+	}
 }
