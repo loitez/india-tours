@@ -1,5 +1,5 @@
-import styles from "./Swiper.module.scss";
+import styles from './Swiper.module.scss';
 
 export const SwiperCard = ({ children }) => {
-  return <div className={styles.swiper__card}>{children}</div>;
+	return <div className={styles.swiper__card}>{children}</div>;
 };
