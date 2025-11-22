@@ -1,8 +1,12 @@
 import styles from './Courses.module.scss'
-import {Header, Wrapper} from "../../components";
-import {useState} from "react";
-import {Card, Tag, Text} from "../../ui-kit";
+import {Header, Wrapper, Error, Sidebar, SortPanel} from "../../components";
+import {useEffect, useState} from "react";
+import {Button, Card, Filter, Tag, Text} from "../../ui-kit";
 import {Link} from "react-router-dom";
+import {truncateTextWithEllipsis} from "../../utils";
+import {formatFilter, forWhomFilter} from "../../constants/filters.ts";
+import {Course} from "../../types";
+import {getCourses} from "../../api";
 
 const MOCK_COURSES = [
     {
@@ -33,38 +37,76 @@ const MOCK_COURSES = [
 ]
 
 export const Courses = () => {
-    const [coursesList, setCoursesList] = useState(MOCK_COURSES);
+    const [courses, setCourses] = useState<Course[]>([])
+    const [allCourses, setAllCourses] = useState<Course[]>([])
+
+
+    useEffect(() => {
+        fetchCourses().then(_ => {
+            setAllCourses(_)
+            setCourses(_)
+        })
+    }, [])
+
+    const clearFilters = () => {
+        setCourses(allCourses)
+    }
+
 
     return (
     <>
       <Header></Header>
         <div>
-            <Text size="text-h1" weight="font-bold">Список доступных курсов</Text>
-           <div className={styles.courses}>
-               {coursesList.map(({id, image, title, description, tags, slug}, index) => (
-                   <Link to={`/courses/${slug}`}>
-                       <Card key={id} version="orange-card" className={styles.courses__card}>
-                           <Wrapper wrapperType="image" className={styles.courses__card_image}>
-                               <img src={`./src/assets/${image}`} alt="Course image"/>
-                           </Wrapper>
-                           <div className={styles.courses__card_text}>
-                               <Text size="text-h2" weight="font-bold" className={styles.courses__card_title}>{title}</Text>
-                               <div className={styles.courses__card_desc}>{description}</div>
-                               <div className={styles.courses__card_tags}>
-                                   {tags.map((tag, index) => (
-                                       <Tag key={index} tag={tag}/>
-                                   ))}
-                               </div>
+                    <Text size="text-h1" weight="font-bold">Список доступных курсов</Text>
+            <SortPanel items={courses} onSortClick={setCourses}/>
+                    <div className={styles.courses}>
+                            <Sidebar>
+                                <Filter className={styles.courses__sidebar_filter} filter={forWhomFilter} title="Для кого курс:" onClick={setCourses}
+                                        courses={courses} allCourses={allCourses}/>
+                                <Filter className={styles.courses__sidebar_filter}  filter={formatFilter} title="Формат курса:" onClick={setCourses}
+                                        courses={courses} allCourses={allCourses}/>
+                                <Button className={styles.courses__sidebar_button} version="outlined-btn" onClick={clearFilters}>Сбросить фильтр</Button>
+                            </Sidebar>
+                        {courses.length ?
+                            <div className={styles.courses__wrapper}>
+                                {courses.map(({id, img_name, title, description, tags, slug}) => (
+                                    <Link to={`/courses/${slug}`} key={id}>
+                                    <Card key={id} version="orange-card" className={styles.courses__wrapper_card}>
+                                        <Wrapper wrapperType="image" className={styles.courses__wrapper_card_image}>
+                                            <img src={`./src/assets/${img_name}`} alt="Course image"/>
+                                        </Wrapper>
+                                        <div className={styles.courses__wrapper_card_text}>
+                                            <Text size="text-h2" weight="font-bold"
+                                                  className={styles.courses__wrapper_card_title}>{title}</Text>
+                                            <div className={styles.courses__wrapper_card_desc}>{truncateTextWithEllipsis(description ?? '', 120)}</div>
+                                            <div className={styles.courses__wrapper_card_tags}>
+                                                {tags.map((tag, index) => (
+                                                    <Tag key={index} tag={tag}/>
+                                                ))}
+                                            </div>
 
-                           </div>
+                                        </div>
 
-                       </Card>
-                   </Link>
+                                    </Card>
+                                </Link>
 
-               ))
-               }
-           </div>
+                            ))}  </div>
+                 : <Error error="404" showToMainButton={false}/> }
+
+
+
+                   </div>
         </div>
-    </>
-    );
-};
+        </>
+                   );
+               };
+
+
+const fetchCourses = async () => {
+    try {
+       return await getCourses();
+    }
+    catch (error) {
+        console.error('Ошибка при получении списка курсов: ', error)
+    }
+}

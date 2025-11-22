@@ -1,0 +1,9 @@
+@use '../../_variables' as vars;
+
+.sidebar {
+  max-width: 300px;
+  margin-right: 30px;
+  background-color: vars.$gray-very-light-color;
+  border-radius: vars.$border-radius-m;
+  padding: 20px;
+}

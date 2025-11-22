@@ -10,7 +10,7 @@ export default defineConfig({
     proxy: {
       '/api': {
         target: 'http://backend:5000', // Имя сервиса из docker-compose.yml
-        changeOrigin: true,
+        changeOrigin: true
       },
     },
   },

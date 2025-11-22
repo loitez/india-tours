@@ -1,31 +1,36 @@
 import styles from "./Header.module.scss";
-import { getRates, getRecalculatedRates } from "../../hooks";
-import { useEffect, useMemo, useState } from "react";
-import { CurrencyRates } from "../../types";
+import {getRecalculatedRates} from "../../hooks";
+import {useEffect, useMemo, useState} from "react";
+import {CurrencyRates} from "../../types";
 import logo from "~assets/HindiLogo.svg";
 import {Wrapper} from "../Wrappers";
-import { Navigation } from "../Navigation";
+import {Navigation} from "../Navigation";
 import {Link} from "react-router-dom";
-import {Button} from "../../ui-kit";
-
-const MOCK_RATES = {
-  INR: 0.978502,
-  EUR: 0.0107697,
-  USD: 0.011204519,
-  RUB: 1,
-};
+import {Button, Text} from "../../ui-kit";
+import {getCookie, clearCookie} from "../../api";
+import {getCurrentUser} from "../../api/getCurrentUser.ts";
+import {iconMap} from "../../constants/icons.ts";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {useIsLoggedIn} from "../../utils/authUtils.ts";
+import {useDispatch} from "react-redux";
+import { logout } from '../../slices';
 
 export const Header = () => {
-  const [rates, setRates] = useState<CurrencyRates>({});
+  const [login, setLogin] = useState('')
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    //getRates().then(_ => setRates(_));
-    setRates(MOCK_RATES);
-  }, []);
+  const isLoggedIn = useIsLoggedIn()
+  console.log(isLoggedIn)
 
-  const recalculatedRates = useMemo(() => {
-    return getRecalculatedRates(rates);
-  }, [rates]);
+  const handleLogout = () => {
+    clearCookie().then(() => {})
+    dispatch(logout());
+  };
+
+  
+  const token = getCookie('token');
+  const user = token && fetchUser(token).then(_ => {setLogin(_ ?? '')});
+  console.log(user)
 
   return (
     <div className={styles.header}>
@@ -39,9 +44,20 @@ export const Header = () => {
         <Link to="/application-form">
           <Button version="secondary-btn">Записаться на занятие</Button>
         </Link>
-        <Link to="/login">
-          Войти
-        </Link>
+        { isLoggedIn ? (
+            <>
+              <Text weight="font-bold">{login}</Text>
+              <Button version="invisible" title="Выйти" onClick={handleLogout}>
+                <FontAwesomeIcon icon={iconMap["logout"]} color="black" />
+              </Button>
+            </>
+
+        ) :
+            (<Link to="/login">
+              Войти
+            </Link>)
+        }
+
       </div>
       {/*<div className={styles.header__currencies}>
         {Object.entries(recalculatedRates).map(([key, value]) => (
@@ -51,3 +67,12 @@ export const Header = () => {
     </div>
   );
 };
+
+
+const fetchUser = async (token: string) => {
+  if (token) {
+    return getCurrentUser(token).then((_) => _.login);
+  }
+  return null;
+}
+

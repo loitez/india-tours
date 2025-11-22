@@ -5,11 +5,11 @@
     { "path": "./tsconfig.node.json"}
   ],
   "compilerOptions": {
-    "target": "ES2021", // Укажите версию ECMAScript
-    "lib": ["ES2021"],  // Добавьте библиотеку ES2021
+    "target": "ES2021",
+    "lib": ["ES2021", "ES2021.String"],
     "strict": true,
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],

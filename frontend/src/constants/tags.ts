@@ -1,4 +1,4 @@
-export const tagsMap: Record<string, any> = {
+export const tagsMap: Record<string, string> = {
     beginner: "Для начинающих",
     intermediate: "Для продолжающих",
     online: "Онлайн",
