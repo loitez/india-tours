@@ -1,7 +1,7 @@
 export interface CurrencyRates {
-    [key: string]: number;
+  [key: string]: number;
 }
 
 export interface CurrencyProps {
-    rate: number
+  rate: number;
 }

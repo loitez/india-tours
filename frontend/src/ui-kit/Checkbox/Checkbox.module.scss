@@ -1,4 +1,4 @@
-@use '../../_variables' as vars;
+@use "../../_variables" as vars;
 
 .checkbox {
   display: inline-block;
@@ -13,16 +13,15 @@
     clip-path: inset(100%);
     clip: rect(0 0 0 0);
     overflow: hidden;
-    &:checked {
-      & + label:before {
-        content: '\f00c';
-        font-family: 'Font Awesome 5 Free', sans-serif; /* Укажите правильное семейство */
-        font-weight: 900; /* Обязательно для некоторых иконок */
-        color: #000;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+    &[value="true"] + label:before {
+      content: "\f00c";
+      font-family:
+        "Font Awesome 5 Free", sans-serif; /* Укажите правильное семейство */
+      font-weight: 900; /* Обязательно для некоторых иконок */
+      color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
   & > label {
@@ -31,7 +30,7 @@
     padding-left: 31px;
     cursor: pointer;
     &:before {
-      content: '';
+      content: "";
       top: 50%;
       left: 5px;
       transform: translateY(-50%);

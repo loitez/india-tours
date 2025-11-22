@@ -1,1 +1,1 @@
-export * from './IconCircle.tsx'
+export * from "./IconCircle.tsx";

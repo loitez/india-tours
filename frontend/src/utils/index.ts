@@ -1,1 +1,1 @@
-export * from './normalizePost'
+export * from "./normalizePost";

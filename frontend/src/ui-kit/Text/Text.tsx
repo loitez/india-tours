@@ -7,11 +7,20 @@ export const Text = ({
   layout = "text-inline",
   align,
   style,
-    color,
+  color,
   children,
-    className,
+  className,
 }: TextTypesProps) => {
-  const classNames = [size, weight, layout, align, style, color, className, styles.text]
+  const classNames = [
+    size,
+    weight,
+    layout,
+    align,
+    style,
+    color,
+    className,
+    styles.text,
+  ]
     .filter(Boolean)
     .join(" ");
 

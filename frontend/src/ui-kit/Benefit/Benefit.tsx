@@ -6,7 +6,7 @@ import { iconMap } from "../../constants/icons.ts";
 export const Benefit = ({ children, icon, className }: BenefitProps) => {
   console.log(iconMap[icon]);
 
-    const classNames = [styles.benefit, className].filter(Boolean).join(" ");
+  const classNames = [styles.benefit, className].filter(Boolean).join(" ");
 
   return (
     <div className={classNames}>

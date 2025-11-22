@@ -1,1 +1,1 @@
-export * from './Swiper.tsx'
+export * from "./Swiper.tsx";

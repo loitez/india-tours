@@ -5,7 +5,10 @@ import {
   faLightbulb,
   faFolder,
   faPen,
-  faBookOpen, faRightFromBracket, faArrowDownAZ, faArrowUpAZ
+  faBookOpen,
+  faRightFromBracket,
+  faArrowDownAZ,
+  faArrowUpAZ,
 } from "@fortawesome/free-solid-svg-icons";
 
 export const iconMap: Record<string, any> = {
