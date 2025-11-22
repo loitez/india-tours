@@ -1,4 +1,4 @@
 export const getCourses = () =>
-  fetch("/api/courses", {
-    method: "GET",
-  }).then((res) => res.json());
+	fetch("/api/courses", {
+		method: "GET",
+	}).then((res) => res.json());

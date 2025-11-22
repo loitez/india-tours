@@ -1,2 +1,2 @@
 export const normalizeText = (text?: string) =>
-  text?.replace(/\n\n/g, "<br><br>").replace(/\n/g, "<br>");
+	text?.replace(/\n\n/g, "<br><br>").replace(/\n/g, "<br>");

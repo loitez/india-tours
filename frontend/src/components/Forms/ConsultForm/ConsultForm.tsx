@@ -1,17 +1,17 @@
-import styles from '../Form.module.scss';
-import { ErrorMessage, Field, Form, Formik } from 'formik';
-import { Button, Checkbox, Text } from '../../../ui-kit';
-import * as Yup from 'yup';
-import { CyrillicSymbolsRegExp } from '../../../constants/regExp.ts';
+import styles from "../Form.module.scss";
+import { ErrorMessage, Field, Form, Formik } from "formik";
+import { Button, Checkbox, Text } from "../../../ui-kit";
+import * as Yup from "yup";
+import { CyrillicSymbolsRegExp } from "../../../constants/regExp.ts";
 
 const validationSchema = Yup.object({
-	email: Yup.string().email('Неверный email').required('Обязательное поле'),
-	phone: Yup.string().required('Обязательное поле'),
+	email: Yup.string().email("Неверный email").required("Обязательное поле"),
+	phone: Yup.string().required("Обязательное поле"),
 	name: Yup.string()
-		.matches(CyrillicSymbolsRegExp, 'Введите имя на кириллице')
-		.min(2, 'Введите не менее 2 символов')
-		.required('Обязательное поле'),
-	agreement: Yup.boolean().oneOf([true], 'Обязательное поле'),
+		.matches(CyrillicSymbolsRegExp, "Введите имя на кириллице")
+		.min(2, "Введите не менее 2 символов")
+		.required("Обязательное поле"),
+	agreement: Yup.boolean().oneOf([true], "Обязательное поле"),
 });
 
 export const ConsultForm = () => {
@@ -30,9 +30,9 @@ export const ConsultForm = () => {
 			<Formik
 				onSubmit={handleSubmit}
 				initialValues={{
-					name: '',
-					phone: '',
-					email: '',
+					name: "",
+					phone: "",
+					email: "",
 					agreement: false,
 				}}
 				validationSchema={validationSchema}

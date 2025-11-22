@@ -1,6 +1,6 @@
-import styles from './App.module.scss';
-import './assets/fonts.scss';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import styles from "./App.module.scss";
+import "./assets/fonts.scss";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {
 	About,
 	Courses,
@@ -10,9 +10,9 @@ import {
 	ApplicationForm,
 	Authorization,
 	Registration,
-} from './pages';
-import '@fortawesome/fontawesome-free/css/all.css';
-import { useSelector } from 'react-redux';
+} from "./pages";
+import "@fortawesome/fontawesome-free/css/all.css";
+import { useSelector } from "react-redux";
 
 export const App = () => {
 	const isLoading = useSelector((state) => state.loader.isLoading);

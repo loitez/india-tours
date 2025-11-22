@@ -1,38 +1,39 @@
-import styles from './Courses.module.scss';
-import { Error, Header, Sidebar, SortPanel, Wrapper } from '../../components';
-import { useEffect, useState } from 'react';
-import { Button, Card, Filter, Tag, Text } from '../../ui-kit';
-import { Link } from 'react-router-dom';
-import { truncateTextWithEllipsis } from '../../utils';
-import { formatFilter, forWhomFilter } from '../../constants/filters.ts';
-import { Course } from '../../types';
-import { getCourses } from '../../api';
-import { Form, Formik } from 'formik';
+import styles from "./Courses.module.scss";
+import { Error, Header, Sidebar, SortPanel, Wrapper } from "../../components";
+import { useEffect, useState } from "react";
+import { Card, Filter, Tag, Text } from "../../ui-kit";
+import { Link } from "react-router-dom";
+import { truncateTextWithEllipsis } from "../../utils";
+import { formatFilter, forWhomFilter } from "../../constants/filters.ts";
+import { Course } from "../../types";
+import { getCourses } from "../../api";
+import { Form, Formik } from "formik";
+import { ResetButton } from "../../ui-kit/Button/ResetButton.tsx";
 
 const MOCK_COURSES = [
 	{
 		id: 1,
-		title: 'Алфавит хинди',
-		description: 'Начни свой путь в мир хинди с первой буквы!',
-		image: 'alphabet-course.jpg',
-		tags: ['beginner', 'online'],
-		slug: 'hindi-alphabet',
+		title: "Алфавит хинди",
+		description: "Начни свой путь в мир хинди с первой буквы!",
+		image: "alphabet-course.jpg",
+		tags: ["beginner", "online"],
+		slug: "hindi-alphabet",
 	},
 	{
 		id: 2,
-		title: 'Намасте и прочие приветствия',
-		description: 'Сделайте первое впечатление незабываемым — заговорите на хинди!',
-		image: 'greetings-course.jpg',
-		tags: ['beginner', 'online'],
-		slug: 'namaste-and-other-greetings',
+		title: "Намасте и прочие приветствия",
+		description: "Сделайте первое впечатление незабываемым — заговорите на хинди!",
+		image: "greetings-course.jpg",
+		tags: ["beginner", "online"],
+		slug: "namaste-and-other-greetings",
 	},
 	{
 		id: 3,
-		title: 'Читаем и пишем рецепты на хинди',
-		description: 'Погрузитесь в гастрономическую культуру Индии через язык!',
-		image: 'cooking-course.png',
-		tags: ['intermediate', 'offline'],
-		slug: 'read-and-write-recipes-on-hindi',
+		title: "Читаем и пишем рецепты на хинди",
+		description: "Погрузитесь в гастрономическую культуру Индии через язык!",
+		image: "cooking-course.png",
+		tags: ["intermediate", "offline"],
+		slug: "read-and-write-recipes-on-hindi",
 	},
 ];
 
@@ -47,7 +48,7 @@ export const Courses = () => {
 		});
 	}, []);
 
-	const clearFilters = () => {
+	const handleReset = () => {
 		setCourses(allCourses);
 	};
 
@@ -76,25 +77,24 @@ export const Courses = () => {
 									className={styles.courses__sidebar_filter}
 									filter={forWhomFilter}
 									title="Для кого курс:"
-									onClick={setCourses}
-									courses={courses}
+									handleChangeCourses={setCourses}
 									allCourses={allCourses}
 								/>
 								<Filter
 									className={styles.courses__sidebar_filter}
 									filter={formatFilter}
 									title="Формат курса:"
-									onClick={setCourses}
-									courses={courses}
+									handleChangeCourses={setCourses}
 									allCourses={allCourses}
 								/>
-								<Button
+								<ResetButton
 									className={styles.courses__sidebar_button}
 									version="outlined-btn"
-									onClick={clearFilters}
+									handleClick={handleReset}
+									type="button"
 								>
 									Сбросить фильтр
-								</Button>
+								</ResetButton>
 							</Form>
 						</Formik>
 					</Sidebar>
@@ -139,7 +139,7 @@ export const Courses = () => {
 													}
 												>
 													{truncateTextWithEllipsis(
-														description ?? '',
+														description ?? "",
 														120,
 													)}
 												</div>
@@ -156,7 +156,7 @@ export const Courses = () => {
 										</Card>
 									</Link>
 								),
-							)}{' '}
+							)}{" "}
 						</div>
 					) : (
 						<Error error="404" showToMainButton={false} />
@@ -171,6 +171,6 @@ const fetchCourses = async () => {
 	try {
 		return await getCourses();
 	} catch (error) {
-		console.error('Ошибка при получении списка курсов: ', error);
+		console.error("Ошибка при получении списка курсов: ", error);
 	}
 };

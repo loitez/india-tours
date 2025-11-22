@@ -1,7 +1,7 @@
-import styles from './Main.module.scss';
-import { Header, Banner, BenefitsSection, Wrapper, Feedback } from '../../components';
-import { Button, Card, Text } from '../../ui-kit';
-import { Link } from 'react-router-dom';
+import styles from "./Main.module.scss";
+import { Header, Banner, BenefitsSection, Wrapper, Feedback } from "../../components";
+import { Button, Card, Text } from "../../ui-kit";
+import { Link } from "react-router-dom";
 
 export const Main = () => {
 	return (

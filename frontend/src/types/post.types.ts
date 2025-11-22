@@ -1,11 +1,11 @@
 export type Post = {
-  title: string;
-  content: string;
-  link: string;
-  image: string;
-  preview?: string;
+	title: string;
+	content: string;
+	link: string;
+	image: string;
+	preview?: string;
 };
 
 export interface IRssFeed {
-  posts: Post[];
+	posts: Post[];
 }

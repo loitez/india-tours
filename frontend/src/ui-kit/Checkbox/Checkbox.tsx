@@ -1,11 +1,11 @@
-import styles from './Checkbox.module.scss';
-import { CheckboxProps } from '../../types';
-import { Field, useField } from 'formik';
-import { noop } from '../../utils/noop.ts';
+import styles from "./Checkbox.module.scss";
+import { CheckboxProps } from "../../types";
+import { Field, useField } from "formik";
+import { noop } from "../../utils/noop.ts";
 
 export const Checkbox = ({ children, id, onChange = noop }: CheckboxProps) => {
 	const [field] = useField({
-		type: 'checkbox',
+		type: "checkbox",
 		name: id,
 	});
 

@@ -1,6 +1,6 @@
-import styles from './Banner.module.scss';
-import { Benefit, Text } from '../../ui-kit';
-import { ConsultForm } from '../Forms';
+import styles from "./Banner.module.scss";
+import { Benefit, Text } from "../../ui-kit";
+import { ConsultForm } from "../Forms";
 
 export const Banner = () => {
 	return (

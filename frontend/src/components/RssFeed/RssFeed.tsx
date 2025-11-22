@@ -1,13 +1,13 @@
-import styles from './RssFeed.module.scss';
-import { useEffect, useState } from 'react';
-import { Card, Loader } from '../../ui-kit';
-import { Wrapper } from '../Wrappers';
-import { type Post } from '../../types';
-import { normalizePost } from '../../utils';
-import { useDispatch, useSelector } from 'react-redux';
-import { getRssFeed } from '../../api';
-import { AppDispatch, RootState } from '../../store.ts';
-import { Error } from '../Error';
+import styles from "./RssFeed.module.scss";
+import { useEffect, useState } from "react";
+import { Card, Loader } from "../../ui-kit";
+import { Wrapper } from "../Wrappers";
+import { type Post } from "../../types";
+import { normalizePost } from "../../utils";
+import { useDispatch, useSelector } from "react-redux";
+import { getRssFeed } from "../../api";
+import { AppDispatch, RootState } from "../../store.ts";
+import { Error } from "../Error";
 
 export const RssFeed = () => {
 	const [items, setItems] = useState([]);
@@ -24,7 +24,7 @@ export const RssFeed = () => {
 		return <Loader />;
 	}
 
-	if (status === 'failed') {
+	if (status === "failed") {
 		return <Error error="500" />;
 	}
 

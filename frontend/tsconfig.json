@@ -1,23 +1,19 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json"},
-    { "path": "./tsconfig.node.json"}
-  ],
-  "compilerOptions": {
-    "target": "ES2021",
-    "lib": ["ES2021", "ES2021.String"],
-    "strict": true,
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "baseUrl": "./",
-    "paths": {
-      "@/*": ["src/*"],
-      "~assets/*": ["src/assets/*"],
-      "~components/*": ["src/components/*"]
-    }
-  },
-  "include": ["src/**/*"],
-  "exclude": [
-    "../node_modules", "dist"]
+	"files": [],
+	"references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }],
+	"compilerOptions": {
+		"target": "ES2021",
+		"lib": ["ES2021", "ES2021.String"],
+		"strict": true,
+		"module": "ESNext",
+		"moduleResolution": "node",
+		"baseUrl": "./",
+		"paths": {
+			"@/*": ["src/*"],
+			"~assets/*": ["src/assets/*"],
+			"~components/*": ["src/components/*"]
+		}
+	},
+	"include": ["src/**/*"],
+	"exclude": ["../node_modules", "dist"]
 }

@@ -1,9 +1,9 @@
-@use '../../_variables' as vars;
+@use "../../_variables" as vars;
 
 .sort {
-  width: fit-content;
-  margin: 5px 0 5px auto;
-  &__item {
-    margin: 0;
-  }
+	width: fit-content;
+	margin: 5px 0 5px auto;
+	&__item {
+		margin: 0;
+	}
 }

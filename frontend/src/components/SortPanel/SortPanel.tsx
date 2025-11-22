@@ -1,16 +1,16 @@
-import styles from './SortPanel.module.scss';
-import { Benefit, Button } from '../../ui-kit';
-import { useState } from 'react';
-import { SortPanelProps } from '../../types';
+import styles from "./SortPanel.module.scss";
+import { Benefit, Button } from "../../ui-kit";
+import { useState } from "react";
+import { SortPanelProps } from "../../types";
 
 const AlphabetTextSort: Record<string, string> = {
-	true: 'Название: А-Я',
-	false: 'Название: Я-А',
+	true: "Название: А-Я",
+	false: "Название: Я-А",
 };
 
 const AlphabetIconSort: Record<string, string> = {
-	true: 'alphabet',
-	false: 'nonAlphabet',
+	true: "alphabet",
+	false: "nonAlphabet",
 };
 
 export const SortPanel = <T extends { title: string }>({
@@ -31,7 +31,7 @@ export const SortPanel = <T extends { title: string }>({
 
 	return (
 		<div className={styles.sort}>
-			<Button version="invisible" onClick={onAlphabetSortButtonClick}>
+			<Button version="invisible" handleClick={onAlphabetSortButtonClick}>
 				<Benefit
 					icon={AlphabetIconSort[String(alphabetSort)]}
 					className={styles.sort__item}

@@ -1,22 +1,22 @@
-import styles from './Header.module.scss';
-import { getRecalculatedRates } from '../../hooks';
-import { useEffect, useMemo, useState } from 'react';
-import { CurrencyRates } from '../../types';
-import logo from '~assets/HindiLogo.svg';
-import { Wrapper } from '../Wrappers';
-import { Navigation } from '../Navigation';
-import { Link } from 'react-router-dom';
-import { Button, Text } from '../../ui-kit';
-import { getCookie, clearCookie } from '../../api';
-import { getCurrentUser } from '../../api/getCurrentUser.ts';
-import { iconMap } from '../../constants/icons.ts';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useIsLoggedIn } from '../../utils/authUtils.ts';
-import { useDispatch } from 'react-redux';
-import { logout } from '../../slices';
+import styles from "./Header.module.scss";
+import { getRecalculatedRates } from "../../hooks";
+import { useEffect, useMemo, useState } from "react";
+import { CurrencyRates } from "../../types";
+import logo from "~assets/HindiLogo.svg";
+import { Wrapper } from "../Wrappers";
+import { Navigation } from "../Navigation";
+import { Link } from "react-router-dom";
+import { Button, Text } from "../../ui-kit";
+import { getCookie, clearCookie } from "../../api";
+import { getCurrentUser } from "../../api/getCurrentUser.ts";
+import { iconMap } from "../../constants/icons.ts";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useIsLoggedIn } from "../../utils/authUtils.ts";
+import { useDispatch } from "react-redux";
+import { logout } from "../../slices";
 
 export const Header = () => {
-	const [login, setLogin] = useState('');
+	const [login, setLogin] = useState("");
 	const dispatch = useDispatch();
 
 	const isLoggedIn = useIsLoggedIn();
@@ -27,11 +27,11 @@ export const Header = () => {
 		dispatch(logout());
 	};
 
-	const token = getCookie('token');
+	const token = getCookie("token");
 	const user =
 		token &&
 		fetchUser(token).then((_) => {
-			setLogin(_ ?? '');
+			setLogin(_ ?? "");
 		});
 	console.log(user);
 
@@ -51,7 +51,7 @@ export const Header = () => {
 					<>
 						<Text weight="font-bold">{login}</Text>
 						<Button version="invisible" title="Выйти" onClick={handleLogout}>
-							<FontAwesomeIcon icon={iconMap['logout']} color="black" />
+							<FontAwesomeIcon icon={iconMap["logout"]} color="black" />
 						</Button>
 					</>
 				) : (

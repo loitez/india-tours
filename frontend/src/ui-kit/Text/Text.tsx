@@ -1,10 +1,10 @@
-import { TextTypesProps } from '../../types';
-import styles from './Text.module.scss';
+import { TextTypesProps } from "../../types";
+import styles from "./Text.module.scss";
 
 export const Text = ({
-	size = 'text-s',
-	weight = 'font-normal',
-	layout = 'text-inline',
+	size = "text-s",
+	weight = "font-normal",
+	layout = "text-inline",
 	align,
 	style,
 	color,
@@ -13,7 +13,7 @@ export const Text = ({
 }: TextTypesProps) => {
 	const classNames = [size, weight, layout, align, style, color, className, styles.text]
 		.filter(Boolean)
-		.join(' ');
+		.join(" ");
 
 	return <span className={classNames}>{children}</span>;
 };

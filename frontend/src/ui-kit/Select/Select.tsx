@@ -1,9 +1,9 @@
-import { SelectProps, Option } from '../../types';
-import { useEffect, useRef, useState } from 'react';
+import { SelectProps, Option } from "../../types";
+import { useEffect, useRef, useState } from "react";
 
 export const Select = ({
 	options,
-	placeholder = 'Выберите значение',
+	placeholder = "Выберите значение",
 	onChange,
 }: SelectProps) => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -21,9 +21,9 @@ export const Select = ({
 			}
 		};
 
-		document.addEventListener('mousedown', handleClickOutside);
+		document.addEventListener("mousedown", handleClickOutside);
 		return () => {
-			document.removeEventListener('mousedown', handleClickOutside);
+			document.removeEventListener("mousedown", handleClickOutside);
 		};
 	}, []);
 
@@ -40,11 +40,11 @@ export const Select = ({
 		<div className="custom-select" ref={dropdownRef}>
 			{/* Отображение выбранной опции или плейсхолдера */}
 			<div
-				className={`select-header ${isOpen ? 'open' : ''}`}
+				className={`select-header ${isOpen ? "open" : ""}`}
 				onClick={() => setIsOpen(!isOpen)}
 			>
 				{selectedOption ? selectedOption.label : placeholder}
-				<span className="arrow">{isOpen ? '▲' : '▼'}</span>
+				<span className="arrow">{isOpen ? "▲" : "▼"}</span>
 			</div>
 
 			{/* Выпадающий список */}

@@ -1,31 +1,31 @@
-@use './_variables' as vars;
-@import './assets/fonts.scss';
+@use "./_variables" as vars;
+@import "./assets/fonts.scss";
 
 .app {
-  max-width: 1300px;
-  margin: 0 auto;
-  font-size: 16px;
+	max-width: 1300px;
+	margin: 0 auto;
+	font-size: 16px;
 }
 a {
-  color: inherit;
-  &:hover {
-    color: vars.$primary-color
-  }
+	color: inherit;
+	&:hover {
+		color: vars.$primary-color;
+	}
 }
 button {
-  outline: none;
-  border: none;
-  &:active {
-    outline: none;
-  }
+	outline: none;
+	border: none;
+	&:active {
+		outline: none;
+	}
 }
 
 :global * {
-  box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+	box-sizing: border-box;
+	font-family: "Montserrat", sans-serif;
 }
 
 input {
-  font-size: inherit;
-  cursor: pointer;
+	font-size: inherit;
+	cursor: pointer;
 }

@@ -1,15 +1,15 @@
-import styles from './ApplicationForm.module.scss';
-import { Button, Card, Input, Select, Text } from '../../ui-kit';
-import { Header, Wrapper } from '../../components';
+import styles from "./ApplicationForm.module.scss";
+import { Button, Card, Input, Select, Text } from "../../ui-kit";
+import { Header, Wrapper } from "../../components";
 
 export const ApplicationForm = () => {
 	const options = [
-		{ value: 'Telegram', label: 'Telegram' },
-		{ value: 'Телефон', label: 'Телефон' },
+		{ value: "Telegram", label: "Telegram" },
+		{ value: "Телефон", label: "Телефон" },
 	];
 
 	const handleChange = (value: string) => {
-		console.log('Выбрано:', value);
+		console.log("Выбрано:", value);
 	};
 
 	return (

@@ -1,56 +1,54 @@
-@use '../../_variables' as vars;
+@use "../../_variables" as vars;
 
 .courses {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-  &__wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    max-width:75%;
-    &_card {
-      justify-content: flex-start;
-      &_text {
-        margin-left: 20px;
-      }
-      &_title {
-        margin-bottom: 10px;
-      }
-      &_desc {
-        margin-bottom: 20px;
-        font-size: 13px;
-      }
-      &_image {
-        max-width: 200px;
-        max-height: 200px;
-        overflow: hidden;
-        border-radius: 20px;
-      }
-      &_tags {
-        display: flex;
-        margin-top: auto;
-        flex-wrap: wrap;
-        & > *:not(:last-child) {
-          margin-right: 5px;
-        }
-      }
-      &:hover {
-        background-color: vars.$primary-color-hover;
-      }
-    }
-  }
-  &__sidebar {
-    &_filter {
-      margin-bottom: 15px;
-    }
-    &_button {
-      width: 100%;
-    }
-  }
-
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+	&__wrapper {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 20px;
+		max-width: 75%;
+		&_card {
+			justify-content: flex-start;
+			&_text {
+				margin-left: 20px;
+			}
+			&_title {
+				margin-bottom: 10px;
+			}
+			&_desc {
+				margin-bottom: 20px;
+				font-size: 13px;
+			}
+			&_image {
+				max-width: 200px;
+				max-height: 200px;
+				overflow: hidden;
+				border-radius: 20px;
+			}
+			&_tags {
+				display: flex;
+				margin-top: auto;
+				flex-wrap: wrap;
+				& > *:not(:last-child) {
+					margin-right: 5px;
+				}
+			}
+			&:hover {
+				background-color: vars.$primary-color-hover;
+			}
+		}
+	}
+	&__sidebar {
+		&_filter {
+			margin-bottom: 15px;
+		}
+		&_button {
+			width: 100%;
+		}
+	}
 }
 
 :global .course-card {
-
 }
